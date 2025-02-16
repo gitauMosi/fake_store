@@ -1,5 +1,4 @@
 import 'package:fake_store/features/categories_page.dart';
-import 'package:fake_store/features/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
