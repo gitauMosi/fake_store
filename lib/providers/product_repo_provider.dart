@@ -1,7 +1,7 @@
 
 
 import 'package:fake_store/data/models/product_model.dart';
-import 'package:fake_store/domain/product_repository.dart';
+import 'package:fake_store/domain/repositories/product_repository.dart';
 import 'package:fake_store/providers/app_providers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

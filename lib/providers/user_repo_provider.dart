@@ -1,5 +1,5 @@
 
-import 'package:fake_store/domain/user_repository.dart';
+import 'package:fake_store/domain/repositories/user_repository.dart';
 import 'package:fake_store/providers/app_providers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

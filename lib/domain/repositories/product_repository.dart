@@ -1,7 +1,7 @@
 
 import 'package:fake_store/data/services/api_services.dart';
 
-import '../data/models/product_model.dart';
+import '../../data/models/product_model.dart';
 
 class  ProductRepository {
 

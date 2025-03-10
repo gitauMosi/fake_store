@@ -1,7 +1,7 @@
 
 import 'package:fake_store/data/models/user_model.dart';
 
-import '../data/services/api_services.dart';
+import '../../data/services/api_services.dart';
 
 class UserRepository {
   ApiServices apiServices;
