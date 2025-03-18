@@ -1,3 +1,4 @@
+import 'package:fake_store/presentation/home/product_view_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../core/constants/app_styles.dart';
@@ -13,41 +14,51 @@ class ProductWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-     elevation: 0,
-     shape: RoundedRectangleBorder(),
-      child: Padding(
-        padding: const EdgeInsets.all(6.0),
-        child: Column(
-         spacing: 2,
-         crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-             height: 100,
-             child: Center(
-               child: Image.network(
-                product.image,
-                errorBuilder: (context, error, stackTrace) {
-                  return Center(child: Icon(Icons.image, size: 24));
-                },
-                         ),
-             ),
-            ),
-            Text(product.title, style: AppStyles.bodySmall, maxLines: 2, overflow: TextOverflow.ellipsis,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(product.price.toString()),
-                Wrap(
-              children: [
-                Icon(Icons.favorite, color: Colors.amber, size: 12,),
-                Text("4.2"),
-              ],
-            ),
-              ],
-            ),
-            
-          ],
+    return GestureDetector(
+      onTap: (){
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ProductViewScreen(product: product),
+          ),
+        );
+      },
+      child: Card(
+       elevation: 0,
+       shape: RoundedRectangleBorder(),
+        child: Padding(
+          padding: const EdgeInsets.all(6.0),
+          child: Column(
+           spacing: 2,
+           crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+               height: 100,
+               child: Center(
+                 child: Image.network(
+                  product.image,
+                  errorBuilder: (context, error, stackTrace) {
+                    return Center(child: Icon(Icons.image, size: 24));
+                  },
+                           ),
+               ),
+              ),
+              Text(product.title, style: AppStyles.bodySmall, maxLines: 2, overflow: TextOverflow.ellipsis,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(product.price.toString()),
+                  Wrap(
+                children: [
+                  Icon(Icons.favorite, color: Colors.amber, size: 12,),
+                  Text("4.2"),
+                ],
+              ),
+                ],
+              ),
+              
+            ],
+          ),
         ),
       ),
     );
