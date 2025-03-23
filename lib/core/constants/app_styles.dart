@@ -9,7 +9,9 @@ class AppStyles {
   static final TextStyle titleSmall = TextStyle(fontSize: 24, fontWeight: FontWeight.bold);
 
   static final TextStyle subTitleBold = TextStyle(fontSize: 18, fontWeight: FontWeight.bold);
+  static final TextStyle subTitleMediumBold = TextStyle(fontSize: 16, fontWeight: FontWeight.bold);
   static final TextStyle subTitle = TextStyle(fontSize: 18);
+  
 
    static final TextStyle bodyLarge = TextStyle(fontSize: 16);
    static final TextStyle bodyMedium = TextStyle(fontSize: 14);

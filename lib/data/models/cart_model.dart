@@ -4,19 +4,17 @@ import 'product_model.dart';
 
 class CartModel {
   Product product;
-  int? quantity;
-  double? subprice;
+  int quantity;
 
   CartModel({
     required this.product,
-     this.quantity = 1,
-     this.subprice = 0.0,
+     this.quantity = 1
   });
 
-  CartModel copyWith({Product? product, int? quantity, double? subprice,}) {
+  CartModel copyWith({Product? product, int? quantity,}) {
     return CartModel(
         product: product ?? this.product,
-        quantity: quantity ?? this.quantity,
-        subprice: subprice ?? this.subprice);
+        quantity: quantity ?? this.quantity
+    );
   }
 }

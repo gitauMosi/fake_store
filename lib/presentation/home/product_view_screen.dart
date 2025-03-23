@@ -1,13 +1,16 @@
 import 'package:fake_store/core/constants/app_styles.dart';
 import 'package:fake_store/data/models/product_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class ProductViewScreen extends StatelessWidget {
+import '../../providers/cart_provider.dart';
+
+class ProductViewScreen extends ConsumerWidget {
   Product product;
   ProductViewScreen({super.key, required this.product});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
@@ -34,12 +37,7 @@ class ProductViewScreen extends StatelessWidget {
         ],
       ),
       body: _buildBody(context, size),
-      bottomSheet: _customRow(context),
-    );
-  }
-
-  SizedBox _customRow(BuildContext context) {
-    return SizedBox(
+      bottomSheet: SizedBox(
       height: 60,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -86,24 +84,32 @@ class ProductViewScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                Container(
-                  padding: EdgeInsets.all(6.0),
-                  decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.onSurface),
-                  child: Center(
-                      child: Text(
-                    "Buy now",
-                    style: AppStyles.bodyLargeBold
-                        .copyWith(color: Theme.of(context).colorScheme.surface),
-                  )),
+                GestureDetector(
+                  onTap: (){
+                    ref.read(cartNotifierProvider.notifier).addCart(product);
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar( content: Text("Product Added to Cart"),));
+                  },
+                  child: Container(
+                    padding: EdgeInsets.all(6.0),
+                    decoration: BoxDecoration(
+                        color: Theme.of(context).colorScheme.onSurface),
+                    child: Center(
+                        child: Text(
+                      "Add Cart",
+                      style: AppStyles.bodyLargeBold
+                          .copyWith(color: Theme.of(context).colorScheme.surface),
+                    )),
+                  ),
                 )
               ],
             )
           ],
         ),
       ),
+    )
     );
   }
+
 
   Widget _buildBody(BuildContext context, Size size) {
     return SingleChildScrollView(
