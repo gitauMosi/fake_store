@@ -26,6 +26,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme:
             AppTheme.light.copyWith(textTheme: GoogleFonts.robotoTextTheme()),
-        home: SplashScreen());
+        home: SplashScreen()
+        );
   }
 }
